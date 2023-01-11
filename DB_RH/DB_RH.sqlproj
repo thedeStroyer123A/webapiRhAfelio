@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB_RH</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{d6403196-68d1-4322-b7b5-b7d0ff54dd5f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DB_RH</RootNamespace>
+    <AssemblyName>DB_RH</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Scripts" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Views" />
+    <Folder Include="Tables" />
+    <Folder Include="Stored Procedures\Employes" />
+    <Folder Include="Stored Procedures\HumanRessourceDep" />
+    <Folder Include="Stored Procedures\Materials" />
+    <Folder Include="Fonctions" />
+    <Folder Include="Stored Procedures\Training_Section" />
+    <Folder Include="Stored Procedures\Affectation_Materials" />
+    <Folder Include="Stored Procedures\Affectation_Personnel" />
+    <Folder Include="Stored Procedures\ControlCheck" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Employes.sql" />
+    <Build Include="Tables\HumanRessourceDep.sql" />
+    <Build Include="Tables\Materials.sql" />
+    <Build Include="Views\V_Employes.sql" />
+    <Build Include="Views\V_HumanRessourceDep.sql" />
+    <Build Include="Views\V_Material.sql" />
+    <Build Include="Stored Procedures\Employes\P_Employes_DELETE.sql" />
+    <Build Include="Stored Procedures\Employes\P_Employes_INSERT.sql" />
+    <Build Include="Stored Procedures\Employes\P_Employes_UPDATE.sql" />
+    <Build Include="Stored Procedures\HumanRessourceDep\P_HumanRessourceDep_Delete.sql" />
+    <Build Include="Stored Procedures\HumanRessourceDep\P_HumanRessourceDep_INSERT.sql" />
+    <Build Include="Stored Procedures\HumanRessourceDep\P_HumanRessourceDep_UPDATE.sql" />
+    <Build Include="Stored Procedures\Materials\P_Material_DELETE.sql" />
+    <Build Include="Stored Procedures\Materials\P_Material_INSERT.sql" />
+    <Build Include="Stored Procedures\Materials\P_Material_UPDATE.sql" />
+    <Build Include="Fonctions\GetSecretKey.sql" />
+    <Build Include="Tables\Training_Section.sql" />
+    <Build Include="Stored Procedures\Training_Section\P_Training_Section_DELETE.sql" />
+    <Build Include="Stored Procedures\Training_Section\P_Training_Section_INSERT.sql" />
+    <Build Include="Stored Procedures\Training_Section\P_Training_Section_UPDATE.sql" />
+    <Build Include="Views\V_Training_Section.sql" />
+    <Build Include="Tables\Affectation_Materials.sql" />
+    <Build Include="Stored Procedures\Affectation_Materials\P_Affectation_Material_DELETE.sql" />
+    <Build Include="Stored Procedures\Affectation_Materials\P_Affectation_Material_UPDATE.sql" />
+    <Build Include="Views\V_Affectation_Material.sql" />
+    <Build Include="Stored Procedures\Affectation_Materials\P_Affectation_Material_INSERT.sql" />
+    <Build Include="Tables\Affectation_Personnel.sql" />
+    <Build Include="Stored Procedures\Affectation_Personnel\P_Affectation_Personnel_DELETE.sql" />
+    <Build Include="Stored Procedures\Affectation_Personnel\P_Affectation_Personnel_INSERT.sql" />
+    <Build Include="Stored Procedures\Affectation_Personnel\P_Affectation_Personnel_UPDATE.sql" />
+    <Build Include="Views\V_Affectation_Personnel.sql" />
+    <Build Include="Tables\ControlCheck.sql" />
+    <Build Include="Views\V_Check_Control.sql" />
+    <Build Include="Stored Procedures\ControlCheck\P_ControlCheck_DELETE.sql" />
+    <Build Include="Stored Procedures\ControlCheck\P_ControlCheck_INSERT.sql" />
+    <Build Include="Stored Procedures\ControlCheck\P_ControlCheck_UPDATE.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DB_RH.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DB_RH_1.publish.xml" />
+  </ItemGroup>
+</Project>
